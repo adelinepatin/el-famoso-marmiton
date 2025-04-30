@@ -1,0 +1,21 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
+# On retire les .lock qui sont spécifiques à chaque poste
+*.lock
+
+#On retire les :Zone.Identifier qui sont spécifique à WSL et ne nécessitent pas d'être push
+*:Zone.Identifier

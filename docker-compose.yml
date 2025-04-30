@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    container_name: efm_app
+    volumes:
+      - ./app:/var/www/html
+    working_dir: /var/www/html
+    ports:
+      - "9000:9000"
+
+  nginx:
+    image: nginx:alpine
+    container_name: efm_nginx
+    volumes:
+      - ./app:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
+
+  database:
+    image: mariadb:latest
+    container_name: efm_database
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: efm_db
+    volumes:
+      - ./efm_database:/var/lib/mariadb
+    ports:
+      - "3306:3306"
+
+volumes:
+  database:
+
+
+
