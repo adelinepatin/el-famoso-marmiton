@@ -1,7 +1,9 @@
 {
     "require": {
         "symfony/orm-pack": "^2.4",
-        "symfonycasts/verify-email-bundle": "^1.17"
+        "symfonycasts/verify-email-bundle": "^1.17",
+        "symfony/form": "^7.2",
+        "symfony/ux-twig-component": "^2.24"
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.63",

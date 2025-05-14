@@ -29,9 +29,8 @@ class Recettes
     #[ORM\ManyToOne(inversedBy: 'recettes')]
     private ?User $userId = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $categories = null;
-
+    #[ORM\Column(type: 'json')]
+    private array $categories = [];
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
@@ -100,12 +99,12 @@ class Recettes
         return $this;
     }
 
-    public function getCategories(): ?string
+    public function getCategories(): array
     {
         return $this->categories;
     }
 
-    public function setCategories(string $categories): static
+    public function setCategories(array $categories): self
     {
         $this->categories = $categories;
 

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nouvelle recette{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Ajouter une recette</h1>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                {{ form_start(form) }}
+                <div class="mb-3">
+                    {{ form_label(form.title, 'Titre de la recette', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.title) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.description) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.ingredients, 'Ingrédients', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.ingredients, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.ingredients) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.image) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.categories, 'Catégories', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.categories) }}
+                    {{ form_errors(form.categories) }}
+                </div>
+                <button type="submit" class="btn btn-success mt-3 d-block mx-auto">Enregistrer la recette</button>
+                {{ form_end(form, {'render_rest': false}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

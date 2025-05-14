@@ -21,7 +21,7 @@ class RegistrationForm extends AbstractType
             ->add('email', EmailType::class, [
                 'required' => true,
                 'constraints' => [
-                    new isTrue([
+                    new NotBlank([
                         'message' => "L'email est obligatoire.",
                     ]),
                 ],
@@ -46,7 +46,7 @@ class RegistrationForm extends AbstractType
                     new Length([
                         'min' => 6,
                         'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} caractères',
-                        'max' => 4096,
+                        'max' => 50,
                     ]),
                 ],
             ])
